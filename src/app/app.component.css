@@ -1,0 +1,195 @@
+/* Keep sizing predictable within this component. */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f3f8f4;
+  color: #24372b;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  color: #47795d;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 12px 0;
+  font-size: clamp(28px, 5vw, 42px);
+}
+
+header > p:last-child,
+.task-count,
+.description,
+.due-date,
+footer {
+  color: #526358;
+  line-height: 1.6;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.panel {
+  min-width: 0;
+  padding: 28px;
+  background: white;
+  border: 1px solid #dfe7e1;
+  border-radius: 16px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bccdc1;
+  border-radius: 8px;
+  background: white;
+  color: #24372b;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #47795d;
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #345d46;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #83b696;
+  outline-offset: 3px;
+}
+
+/* Task cards allow long titles and descriptions to wrap. */
+.task-card {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid #dfe7e1;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.task-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #fff1cf;
+  color: #705000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge.high {
+  background: #fce4e4;
+  color: #a32727;
+}
+
+.badge.low {
+  background: #e4f3e8;
+  color: #28603d;
+}
+
+.completion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.completion input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: #47795d;
+}
+
+.empty-state {
+  padding: 36px 12px;
+  text-align: center;
+  color: #526358;
+}
+
+.error {
+  color: #b3261e;
+}
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Stack the form and task list on smaller screens. */
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 28px 16px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+}
